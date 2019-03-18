@@ -1,0 +1,421 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.2
+-- Dumped by pg_dump version 11.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: dayssum; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.dayssum (
+    id integer NOT NULL,
+    month character varying(15),
+    date integer,
+    sum integer,
+    week integer
+);
+
+
+ALTER TABLE public.dayssum OWNER TO postgres;
+
+--
+-- Data for Name: dayssum; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.dayssum (id, month, date, sum, week) FROM stdin;
+1	Jan	1	500	1
+2	Jan	2	1000	1
+3	Jan	3	1500	1
+4	Jan	4	2000	1
+5	Jan	5	2500	1
+6	Jan	6	1500	1
+7	Jan	7	1000	1
+8	Jan	8	500	2
+9	Jan	9	1500	2
+10	Jan	10	1000	2
+135	May	15	1000	3
+11	Jan	11	3000	2
+12	Jan	2	1500	2
+13	Jan	13	2000	2
+14	Jan	14	500	3
+15	Jan	15	1600	3
+16	Jan	16	2000	3
+17	Jan	17	500	3
+18	Jan	18	1000	3
+19	Jan	19	1500	3
+20	Jan	20	2000	3
+21	Jan	21	1500	3
+22	Jan	22	1000	4
+23	Jan	23	1500	4
+24	Jan	24	500	4
+25	Jan	25	1000	4
+26	Jan	26	1900	4
+27	Jan	27	500	4
+28	Jan	28	1000	4
+29	Jan	29	1700	5
+30	Jan	30	500	5
+31	Jan	31	1000	5
+32	Feb	1	4000	1
+33	Feb	2	3500	1
+34	Feb	3	1500	1
+35	Feb	4	500	1
+37	Feb	6	500	1
+38	Feb	7	1500	1
+39	Feb	8	500	2
+41	Feb	10	1500	2
+42	Feb	11	500	2
+43	Feb	12	1000	2
+44	Feb	13	500	2
+45	Feb	14	500	2
+46	Feb	15	1000	3
+47	Feb	16	1500	3
+48	Feb	17	500	3
+49	Feb	18	1000	3
+50	Feb	19	1500	3
+51	Feb	20	2000	3
+52	Feb	21	1000	3
+53	Feb	22	500	4
+54	Feb	23	1000	4
+55	Feb	24	1500	4
+56	Feb	25	1500	4
+57	Feb	26	2000	4
+58	Feb	27	1000	4
+59	Feb	28	1500	4
+60	Mar	1	1000	1
+61	Mar	2	1500	1
+62	Mar	3	500	1
+63	Mar	4	1000	1
+64	Mar	5	1500	1
+65	Mar	6	1000	1
+66	Mar	7	500	1
+67	Mar	8	1500	2
+68	Mar	9	2000	2
+69	Mar	10	2500	2
+70	Mar	11	500	2
+71	Mar	12	1000	2
+72	Mar	13	1500	2
+73	Mar	14	500	2
+74	Mar	15	1000	3
+75	Mar	16	1500	3
+76	Mar	17	2000	3
+77	Mar	18	1000	3
+78	Mar	19	1500	3
+79	Mar	20	2000	3
+80	Mar	21	1000	3
+81	Mar	22	500	4
+82	Mar	23	1000	4
+83	Mar	24	1500	4
+84	Mar	25	1000	4
+85	Mar	26	500	4
+86	Mar	27	1000	4
+87	Mar	28	1200	4
+88	Mar	29	1500	5
+89	Mar	30	1000	5
+91	Apr	1	1000	1
+92	Apr	2	1500	1
+93	Apr	3	2000	1
+95	Apr	5	1000	1
+96	Apr	6	1500	1
+97	Apr	7	2000	1
+98	Apr	8	500	2
+99	Apr	9	1000	2
+100	Apr	10	500	2
+101	Apr	11	1000	2
+102	Apr	12	2000	2
+103	Apr	13	1000	2
+104	Apr	14	500	2
+105	Apr	15	1000	3
+106	Apr	16	1500	3
+107	Apr	17	2000	3
+108	Apr	18	1000	3
+109	Apr	19	500	3
+110	Apr	20	1000	3
+111	Apr	21	2000	3
+112	Apr	22	1000	4
+113	Apr	23	500	4
+114	Apr	24	1000	4
+115	Apr	25	500	4
+116	Apr	26	1000	4
+117	Apr	27	500	4
+118	Apr	28	1000	4
+119	Apr	29	500	5
+120	Apr	30	1000	5
+90	Mar	31	500	5
+121	May	1	500	1
+122	May	2	1000	1
+123	May	3	1000	1
+124	May	4	1500	1
+125	May	5	500	1
+126	May	6	1000	1
+127	May	7	1500	1
+128	May	8	2000	2
+129	May	9	1500	2
+130	May	10	2000	2
+131	May	11	500	2
+132	May	12	1000	2
+133	May	13	1500	2
+134	May	14	2000	2
+136	May	16	500	3
+137	May	17	1000	3
+138	May	18	1500	3
+139	May	19	1000	3
+140	May	20	1500	3
+141	May	21	2000	3
+142	May	22	2500	4
+143	May	23	500	4
+144	May	24	1000	4
+145	May	25	1200	4
+146	May	26	1600	4
+147	May	27	2000	4
+148	May	28	500	4
+149	May	29	1000	5
+150	May	30	1500	5
+151	May	31	2000	5
+152	Jun	1	500	1
+153	Jun	2	1000	1
+154	Jun	3	1500	1
+155	Jun	4	2000	1
+156	Jun	5	1500	1
+94	Apr	4	500	1
+157	Jun	6	2000	1
+158	Jun	7	1000	1
+159	Jun	8	1500	2
+160	Jun	9	2000	2
+161	Jun	10	1000	2
+162	Jun	11	500	2
+163	Jun	12	1000	2
+164	Jun	13	500	2
+165	Jun	14	1000	2
+166	Jun	15	1500	3
+167	Jun	16	2000	3
+168	Jun	17	2500	3
+169	Jun	18	1000	3
+170	Jun	19	500	3
+171	Jun	20	1000	3
+172	Jun	21	1500	3
+173	Jun	22	2000	4
+174	Jun	23	2500	4
+175	Jun	24	1000	4
+176	Jun	25	1500	4
+177	Jun	26	1000	4
+178	Jun	27	500	4
+179	Jun	28	1000	4
+180	Jun	29	1500	5
+181	Jun	30	1000	5
+182	Jul	1	500	1
+183	Jul	2	1000	1
+184	Jul	3	1500	1
+185	Jul	4	2000	1
+186	Jul	5	1000	1
+187	Jul	6	1500	1
+188	Jul	7	2000	1
+190	Jul	9	1000	2
+191	Jul	10	1500	2
+192	Jul	11	500	2
+193	Jul	12	1000	2
+194	Jul	13	1500	2
+195	Jul	14	2000	2
+196	Jul	15	1000	3
+197	Jul	16	1500	3
+198	Jul	17	1000	3
+199	Jul	18	500	3
+200	Jul	19	1000	3
+201	Jul	20	1500	3
+202	Jul	21	2000	3
+203	Jul	22	1500	4
+204	Jul	23	1000	4
+205	Jul	24	1500	4
+206	Jul	25	2000	4
+207	Jul	26	1000	4
+208	Jul	27	500	4
+209	Jul	28	1000	4
+210	Jul	29	500	5
+211	Jul	30	1000	5
+212	Jul	31	1500	5
+213	Aug	1	1000	1
+214	Aug	2	500	1
+215	Aug	3	1500	1
+216	Aug	4	1000	1
+217	Aug	5	500	1
+218	Aug	6	1000	1
+219	Aug	7	1800	1
+220	Aug	8	2000	2
+221	Aug	9	1000	2
+222	Aug	10	1500	2
+223	Aug	11	2000	2
+224	Aug	12	2600	2
+225	Aug	13	3000	2
+226	Aug	14	1000	2
+227	Aug	15	2000	3
+228	Aug	16	2500	3
+229	Aug	17	3000	3
+230	Aug	18	1000	3
+231	Aug	19	1500	3
+232	Aug	20	2000	3
+233	Aug	21	1000	3
+234	Aug	22	500	4
+235	Aug	23	1000	4
+236	Aug	24	1500	4
+237	Aug	25	1000	4
+238	Aug	26	500	4
+239	Aug	27	1000	4
+240	Aug	28	1500	4
+241	Aug	29	1000	5
+242	Aug	30	500	5
+243	Aug	31	1000	5
+244	Sep	1	500	1
+245	Sep	2	1000	1
+246	Sep	3	1500	1
+248	Sep	5	1500	1
+249	Sep	6	1000	1
+250	Sep	7	500	1
+251	Sep	8	1000	2
+252	Sep	9	1500	2
+253	Sep	10	2000	2
+254	Sep	11	1000	2
+255	Sep	12	500	2
+256	Sep	13	1000	2
+257	Sep	14	2000	2
+258	Sep	15	1000	3
+259	Sep	16	1500	3
+260	Sep	17	1000	3
+261	Sep	18	2000	3
+262	Sep	19	1000	3
+263	Sep	20	500	3
+264	Sep	21	1000	3
+265	Sep	22	1500	4
+266	Sep	23	1000	4
+267	Sep	24	2000	4
+268	Sep	25	1000	4
+269	Sep	26	500	4
+270	Sep	27	1000	4
+271	Sep	28	1500	4
+272	Sep	29	2000	5
+273	Sep	30	1000	5
+247	Sep	4	1000	1
+274	Oct	1	1500	1
+275	Oct	2	1000	1
+276	Oct	3	1500	1
+277	Oct	4	1600	1
+278	Oct	5	2000	1
+279	Oct	6	1000	1
+280	Oct	7	1500	1
+281	Oct	8	2000	2
+282	Oct	9	1000	2
+283	Oct	10	1500	2
+284	Oct	11	2000	2
+285	Oct	12	1000	2
+286	Oct	13	1500	2
+287	Oct	14	2000	2
+288	Oct	15	2500	3
+289	Oct	16	1000	3
+290	Oct	17	1500	3
+291	Oct	18	1000	3
+292	Oct	19	500	3
+293	Oct	20	1500	3
+294	Oct	21	1000	3
+295	Oct	22	500	4
+296	Oct	23	1500	4
+297	Oct	24	2000	4
+298	Oct	25	1000	4
+299	Oct	26	1500	4
+300	Oct	27	2000	4
+301	Oct	28	1000	4
+302	Oct	29	1500	5
+303	Oct	30	1000	5
+304	Oct	31	500	5
+305	Nov	1	1000	1
+306	Nov	2	1500	1
+307	Nov	3	1000	1
+308	Nov	4	500	1
+309	Nov	5	1000	1
+310	Nov	6	1500	1
+311	Nov	7	2000	1
+312	Nov	8	2500	2
+313	Nov	9	1000	2
+314	Nov	10	1500	2
+315	Nov	11	1000	2
+316	Nov	12	500	2
+317	Nov	13	1000	2
+318	Nov	14	2000	2
+319	Nov	15	1000	3
+320	Nov	16	500	3
+322	Nov	18	3000	3
+323	Nov	19	1500	3
+324	Nov	20	2000	3
+325	Nov	21	1000	3
+326	Nov	22	1500	4
+327	Nov	23	2000	4
+328	Nov	24	1000	4
+329	Nov	25	2500	4
+330	Nov	26	1000	4
+331	Nov	27	500	4
+332	Nov	28	1500	4
+333	Nov	29	1000	5
+334	Nov	30	2500	5
+335	Dec	1	1000	1
+336	Dec	2	1500	1
+337	Dec	3	1000	1
+338	Dec	4	2000	1
+339	Dec	5	1500	1
+340	Dec	6	2000	1
+341	Dec	7	1000	1
+342	Dec	8	1500	2
+343	Dec	9	2000	2
+344	Dec	10	1000	2
+345	Dec	11	1500	2
+346	Dec	12	2000	2
+347	Dec	13	1000	2
+348	Dec	14	1500	2
+349	Dec	15	2000	3
+350	Dec	16	1000	3
+351	Dec	17	2000	3
+352	Dec	18	1500	3
+353	Dec	19	2000	3
+355	Dec	21	500	3
+356	Dec	22	1000	4
+357	Dec	23	1500	4
+358	Dec	24	2000	4
+359	Dec	25	1000	4
+360	Dec	26	2500	4
+361	Dec	27	1000	4
+362	Dec	28	1500	4
+363	Dec	29	2000	5
+364	Dec	30	1000	5
+365	Dec	31	500	5
+36	Feb	5	1000	1
+40	Feb	9	1000	2
+189	Jul	8	1600	2
+354	Dec	20	1000	3
+321	Nov	17	300	3
+\.
+
+
+--
+-- Name: dayssum dayssum_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.dayssum
+    ADD CONSTRAINT dayssum_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

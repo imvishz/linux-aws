@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: postgres
+      POSTGRES_DB: dayssum
+    volumes:
+    - ./dbdump.sql:/docker-entrypoint-initdb.d/init.sql    
+    ports:
+      - 5433:5432 
+  
+  server:
+     build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+     volumes:
+      - /app/node_modules
+      - ./server:/app
+     ports:  
+      - 3000:3000
+   
+  client:
+     build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+     volumes:
+      - /app/node_modules
+      - ./client:/app
+     ports:  
+      - 8080:8080
+volumes:
+  data:
+    driver: local
