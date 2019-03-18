@@ -30,7 +30,7 @@ services:
       - /app/node_modules
       - ./client:/app
      ports:  
-      - 80:80
+      - 8080:8080
 volumes:
   data:
     driver: local
