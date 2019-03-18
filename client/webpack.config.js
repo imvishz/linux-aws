@@ -46,6 +46,7 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
+    disableHostCheck: true,
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
