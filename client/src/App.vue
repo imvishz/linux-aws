@@ -96,11 +96,11 @@ export default {
         var reqObj={};
         
         if(this.filterType == "MONTHLY"){
-          url = 'http://13.233.94.50:3000/monthly';
+          url = 'http://13.234.38.162:3000/monthly';
           reqObj['filterType'] = filterType;
           flag = true;
         }else if(this.filterType == "WEEKLY"){
-          url = 'http://13.233.94.50:3000/weekly';
+          url = 'http://13.234.38.162:3000/weekly';
           reqObj['filterType'] = filterType;
           reqObj['month'] = this.filterMonth;
           flag = false;  
